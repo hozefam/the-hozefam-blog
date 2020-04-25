@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from '../components/Layout';
 import { graphql, Link } from 'gatsby';
-import Dump from '../components/Dump';
+// import Dump from '../components/Dump';
 import styled from 'styled-components';
 
 const IndexWrapper = styled.main``;
