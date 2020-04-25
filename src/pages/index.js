@@ -1,22 +1,31 @@
 import React from 'react';
 import { Layout } from '../components/Layout';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Dump from '../components/Dump';
+import styled from 'styled-components';
+
+const IndexWrapper = styled.main``;
+
+const PostWrapper = styled.main``;
 
 export default ({ data }) => {
   return (
     <>
       <Layout>
-        <Dump youyou={data} />
-        {data.allMdx.nodes.map(({ excerpt, frontmatter }) => {
-          return (
-            <>
-              <h1>{frontmatter.title}</h1>
-              <p>{frontmatter.date}</p>
-              <p>{excerpt}</p>
-            </>
-          );
-        })}
+        <IndexWrapper>
+          {/* <Dump youyou={data} /> */}
+          {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => {
+            return (
+              <PostWrapper key={id}>
+                <Link to={fields.slug}>
+                  <h1>{frontmatter.title}</h1>
+                  <p>{frontmatter.date}</p>
+                  <p>{excerpt}</p>
+                </Link>
+              </PostWrapper>
+            );
+          })}
+        </IndexWrapper>
       </Layout>
     </>
   );
