@@ -1,11 +1,13 @@
 import React from 'react';
 import { Layout } from '../components/Layout';
 import { graphql } from 'gatsby';
+import Dump from '../components/Dump';
 
 export default ({ data }) => {
   return (
     <>
       <Layout>
+        <Dump youyou={data} />
         {data.allMdx.nodes.map(({ excerpt, frontmatter }) => {
           return (
             <>
@@ -32,6 +34,9 @@ export const query = graphql`
         frontmatter {
           title
           date
+        }
+        fields {
+          slug
         }
       }
     }
