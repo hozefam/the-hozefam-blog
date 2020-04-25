@@ -8,9 +8,7 @@ published: true
 
 Using `prism-react-renderer`
 
-```jsx
-import React from 'react';
-
+```jsx react-live
 const Dump = (props) => (
   <div
     style={{
@@ -29,5 +27,5 @@ const Dump = (props) => (
   </div>
 );
 
-export default Dump;
+render(<Dump props={['yo', 'yo']} />);
 ```
